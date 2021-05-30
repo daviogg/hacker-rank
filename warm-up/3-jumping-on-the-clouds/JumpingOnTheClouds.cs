@@ -24,17 +24,15 @@ class Result
 
     public static int jumpingOnClouds(List<int> c)
     {
-        int minimumStep = 0;
-
-        for(int i = 0; i < c.Count();){
-            if(c[i+2] == 0){
-                i+= 2;
-            }
-            else{
-                i++;
-            }
-            minimumStep ++;
+       int minimumStep = 0;
+        
+        for (int i = 0; i < c.Count();)
+        {
+            i += ((i+2) < c.Count() && c[i + 2] == 0) ? 2 : 1;
+            if(i < c.Count)
+                minimumStep++;
         }
+        
         return minimumStep;
     }
 
